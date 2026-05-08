@@ -1,0 +1,345 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0366d6;
+  --border-color: #eaecef;
+  --meta-color: #6a737d;
+  --card-bg: #ffffff;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --header-bg: #f8f9fa;
+  --tag-bg: #f1f8ff;
+  --tag-color: #0366d6;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0d1117;
+  --text-color: #c9d1d9;
+  --link-color: #58a6ff;
+  --border-color: #30363d;
+  --meta-color: #8b949e;
+  --card-bg: #161b22;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --header-bg: #161b22;
+  --tag-bg: #1f2428;
+  --tag-color: #58a6ff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+}
+
+.header-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-container h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.header-container h1 a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#search-input {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.post-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.post-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  color: var(--meta-color);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.category {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--border-color);
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--tag-bg);
+  color: var(--tag-color);
+  padding: 0.2em 0.6em;
+  border-radius: 2em;
+  font-size: 0.85em;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+}
+
+.filter-section {
+  margin-bottom: 2rem;
+}
+
+.tag-btn {
+  background-color: var(--tag-bg);
+  color: var(--tag-color);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin: 0.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag-btn:hover {
+  background-color: var(--link-color);
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--meta-color);
+  border-top: 1px solid var(--border-color);
+  margin-top: 4rem;
+}
+
+/* 마크다운 스타일 지정 */
+#post-content h1, #post-content h2, #post-content h3 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.3em;
+}
+
+#post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+#post-content pre {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+#post-content code {
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.giscus-container {
+  margin-top: 4rem;
+}
+
+/* 포트폴리오 섹션 */
+.portfolio-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.portfolio-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--card-shadow);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.portfolio-img-placeholder {
+  width: 100%;
+  height: 150px;
+  background-color: var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--meta-color);
+  font-weight: bold;
+}
+
+.portfolio-item h4 {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* 모달 스타일 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 2.5rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: var(--meta-color);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-modal:hover {
+  color: var(--text-color);
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-body p {
+  margin-bottom: 0.8rem;
+}
+
+.stack-section {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--header-bg);
+  border-radius: 8px;
+}
+
+.stack-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: var(--link-color);
+}
+
+.stack-section ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.stack-section li {
+  margin-bottom: 0.5rem;
+}
+
+.link-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #2ea44f;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  background-color: #2c974b;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+[data-theme="dark"] .github-link {
+  background-color: #238636;
+}
+[data-theme="dark"] .github-link:hover {
+  background-color: #2ea043;
+}

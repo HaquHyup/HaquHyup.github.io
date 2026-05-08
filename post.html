@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post - My GitHub Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" id="prism-theme">
+  <!-- marked.js -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1><a href="index.html">My Blog</a></h1>
+      <div class="controls">
+        <button id="theme-toggle">🌙</button>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container">
+    <article id="post-content">
+      <!-- 마크다운이 HTML로 변환되어 렌더링됩니다 -->
+    </article>
+    
+    <div class="giscus-container">
+      <!-- Giscus가 js/post-loader.js를 통해 동적으로 로드됩니다 -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Blog. Powered by GitHub Pages.</p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/post-loader.js"></script>
+  <!-- Prism.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+</body>
+</html>
