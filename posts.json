@@ -1,5 +1,16 @@
 [
   {
+    "slug": "startup-funding-analysis",
+    "title": "글로벌 스타트업 투자 트렌드 분석: 누가 AI 시장을 주도하는가?",
+    "summary": "2,820건의 투자 데이터를 통해 분석한 글로벌 자본의 흐름과 AI 섹터의 독주",
+    "thumbnail": "images/startup-funding-analysis-thumbnail.png",
+    "date": "2026-05-12",
+    "tags": ["데이터분석", "스타트업", "투자트렌드", "AI"],
+    "category": "데이터분석",
+    "techStack": ["Python", "pandas", "matplotlib", "seaborn"],
+    "file": "startup-funding-analysis.md"
+  },
+  {
     "slug": "instagram-influencer-analysis",
     "title": "인스타그램 인플루언서 광고 효율 분석 (2024)",
     "summary": "상위 200명 데이터를 분석하여 팔로워 수 대비 '진짜 영향력'을 파헤치다",
