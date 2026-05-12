@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "instagram-influencer-analysis",
+    "title": "인스타그램 인플루언서 광고 효율 분석 (2024)",
+    "summary": "상위 200명 데이터를 분석하여 팔로워 수 대비 '진짜 영향력'을 파헤치다",
+    "thumbnail": "images/instagram-influencer-analysis-thumbnail.png",
+    "date": "2026-05-12",
+    "tags": ["데이터분석", "인플루언서", "광고효율"],
+    "category": "데이터분석",
+    "techStack": ["Python", "pandas", "seaborn"],
+    "file": "instagram-influencer-analysis.md"
+  }
+]
