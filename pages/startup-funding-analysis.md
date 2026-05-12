@@ -18,7 +18,7 @@
 
 ## 🔗 링크
 
-- 📓 [코랩 노트북 보기](https://colab.research.google.com/drive/example)
+- 📓 [코랩 노트북 보기](https://colab.research.google.com/drive/1lPVn04ROsi57GnJSE3k-gjC3AxBKTIKZ?usp=sharing)
 - 🐙 [GitHub 레포지토리](https://github.com/HaquHyup/startup-funding-analysis)
 
 ---
