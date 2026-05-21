@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>비바리퍼블리카 (토스) — Research Note</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&family=Pretendard+Variable&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--paper:#fafaf7;--muted:#6b6b66;--line:#1a1a1a;--line-soft:#d8d6cf;--accent:#b8451f;}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Pretendard Variable',Georgia,serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+.page{max-width:720px;margin:0 auto;padding:64px 32px 120px;}
+.masthead{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:48px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.masthead .left{font-weight:500;color:var(--ink);}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:44px;line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;}
+.standfirst{font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.5;color:var(--muted);margin-bottom:40px;max-width:600px;}
+.byline{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);padding-bottom:32px;margin-bottom:48px;border-bottom:1px solid var(--line-soft);}
+.byline span+span::before{content:" · ";margin:0 4px;}
+.tldr{margin:0 0 56px;padding:24px 28px;border-left:2px solid var(--ink);}
+.tldr-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.tldr p{margin:0 0 8px;font-size:16px;line-height:1.55;}
+.tldr p:last-child{margin-bottom:0;}
+h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:26px;letter-spacing:-0.01em;margin:56px 0 20px;padding-top:24px;border-top:1px solid var(--line);}
+h2 .num{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--muted);margin-right:12px;vertical-align:4px;}
+p{margin:0 0 16px;}
+.facts{display:grid;grid-template-columns:140px 1fr;gap:4px 32px;margin:32px 0 40px;padding:24px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);font-size:14px;}
+.facts dt{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding-top:4px;}
+.facts dd{margin:0;padding-bottom:12px;border-bottom:1px dotted var(--line-soft);}
+.facts dd:last-of-type{border-bottom:none;padding-bottom:0;}
+.competitor-list{margin:0;padding:0;list-style:none;}
+.competitor-list li{padding:20px 0;border-bottom:1px solid var(--line-soft);}
+.competitor-list li:last-child{border-bottom:none;}
+.competitor-list h3{font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;margin:0 0 6px;}
+.competitor-list h3 .url{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:400;margin-left:8px;text-decoration:none;}
+.competitor-list .pos{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.competitor-list p{font-size:15px;margin:0;}
+table.opportunities{width:100%;border-collapse:collapse;margin:24px 0 40px;font-size:14px;}
+.opportunities th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:10px 12px 10px 0;border-bottom:1px solid var(--line);}
+.opportunities td{padding:16px 12px 16px 0;border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.5;}
+.opportunities td:first-child{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:12px;width:28px;}
+.priority{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:2px 7px;text-transform:uppercase;border:1px solid var(--ink);}
+.priority.high{background:var(--ink);color:var(--paper);}
+.priority.med{background:transparent;color:var(--ink);}
+.priority.low{background:transparent;color:var(--muted);border-color:var(--line-soft);}
+.next-action{margin:32px 0 48px;padding:28px 32px;background:var(--ink);color:var(--paper);}
+.next-action .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#999;margin-bottom:10px;}
+.next-action p{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.5;margin:0;}
+.sources{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+.sources-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;}
+.sources ol{padding-left:20px;margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.8;}
+.sources ol a{color:var(--accent);text-decoration:none;word-break:break-all;}
+.colophon{margin-top:80px;padding-top:24px;border-top:1px solid var(--line-soft);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <div class="left">RESEARCH NOTE / 핀테크 및 모바일 슈퍼앱</div>
+    <div class="right">VOL.313 · 2026-05-21</div>
+  </div>
+  <div class="kicker">company · 1-page brief</div>
+  <h1>비바리퍼블리카 (토스)</h1>
+  <p class="standfirst">금융을 넘어 일상 전반의 트래픽을 독점하는 슈퍼앱으로 진화하며, 단순 핀테크가 아닌 '시간 점유 플랫폼'으로 변곡점을 맞이했다.</p>
+  <div class="byline">
+    <span>Compiled by n8n research workflow</span>
+    <span>3 sources</span>
+    <span>~3 min read</span>
+  </div>
+  <div class="tldr">
+    <div class="tldr-label">TL;DR</div>
+    <p>금융의 모든 맥락을 단 하나의 앱으로 통합하여 국내 최고 수준의 MAU를 유지하고 있음.</p>
+    <p>만보기, 고양이 키우기 등 게이미피케이션 요소를 도입해 금융 앱을 넘어선 일상적 체류 시간 확보에 성공함.</p>
+    <p>계열사 흑자 전환에 힘입어 성공적인 IPO를 위한 비금융 비즈니스 모델 다각화에 집중하고 있음.</p>
+  </div>
+  <h2><span class="num">01</span>회사 개요</h2>
+  <p>토스는 간편 송금으로 시작해 은행, 증권, 보험 등 모든 금융 서비스를 하나의 앱에서 제공하는 대한민국 대표 핀테크 플랫폼입니다. 최근에는 공동구매, 만보기 등 비금융 콘텐츠를 강화하며 사용자 체류 시간을 극대화하고 있습니다.</p>
+  <dl class="facts">
+    <dt>주요 고객</dt><dd>금융 편의성과 일상적 혜택을 동시에 추구하는 전 연령대 모바일 사용자</dd>
+    <dt>비즈니스 모델</dt><dd>금융 상품 중개 수수료, 광고 매출, 결제 수수료 및 계열사 금융 이자 수익</dd>
+    <dt>최근 이슈</dt><dd>토스뱅크의 지속적인 흑자 달성과 토스증권의 해외주식 서비스 흥행을 바탕으로 한 IPO(기업공개) 본격 추진</dd>
+  </dl>
+  <h2><span class="num">02</span>경쟁 지형</h2>
+  <p>토스의 진정한 경쟁 상대는 전통 금융사가 아닌, 사용자의 일상적 주의력과 체류 시간을 두고 경쟁하는 빅테크 및 콘텐츠 플랫폼입니다.</p>
+  <ol class="competitor-list">
+    <li>
+        <h3>카카오 <a href="https://www.kakaocorp.com" class="url">↗ www.kakaocorp.com</a></h3>
+        <div class="pos">포지셔닝 — 국민 메신저 기반의 종합 생활 플랫폼</div>
+        <p>압도적인 관계망 기반의 커뮤니케이션과 선물하기 등 일상 밀착형 커머스 생태계를 통해 사용자를 묶어둡니다.</p>
+      </li>
+<li>
+        <h3>네이버 <a href="https://www.navercorp.com" class="url">↗ www.navercorp.com</a></h3>
+        <div class="pos">포지셔닝 — 검색 및 쇼핑 중심의 포털 플랫폼</div>
+        <p>네이버페이 생태계와 웹툰, 블로그 등 방대한 콘텐츠 자산을 결합하여 사용자의 검색부터 결제까지의 여정을 독점합니다.</p>
+      </li>
+<li>
+        <h3>유튜브 <a href="https://www.youtube.com" class="url">↗ www.youtube.com</a></h3>
+        <div class="pos">포지셔닝 — 글로벌 동영상 및 엔터테인먼트 플랫폼</div>
+        <p>알고리즘 기반의 무한 스크롤 영상 콘텐츠를 통해 사용자의 여가 시간과 주의력을 가장 강력하게 흡수합니다.</p>
+      </li>
+  </ol>
+  <h2><span class="num">03</span>자동화 기회</h2>
+  <p>토스가 보유한 방대한 사용자 행동 데이터와 금융 맥락을 LLM 및 자동화 워크플로우와 결합하면 운영 효율성을 극대화할 수 있습니다.</p>
+  <table class="opportunities">
+    <thead><tr><th>#</th><th>영역</th><th>현재 반복 업무</th><th>자동화 가설</th><th>기대 효과</th><th>P</th></tr></thead>
+    <tbody><tr>
+        <td>01</td>
+        <td>고객 상담 및 민원 처리 (CS)</td>
+        <td>전문 상담원이 복잡한 금융 규제 및 개별 약관을 일일이 확인하여 수동으로 고객 문의에 답변함.</td>
+        <td>금융 특화 LLM을 구축하여 실시간으로 규제 준수 여부를 검증하고 맞춤형 답변 초안을 자동 생성하는 시스템 도입.</td>
+        <td>상담 처리 시간을 40% 이상 단축하고, 단순 반복 문의에 대한 자동 해결률을 80%까지 끌어올림.</td>
+        <td><span class="priority high">High</span></td>
+      </tr>
+<tr>
+        <td>02</td>
+        <td>맞춤형 금융 콘텐츠 제작</td>
+        <td>에디터들이 매일 시장 동향을 분석하고 토스 피드에 게재할 금융 뉴스 및 재테크 팁을 수동으로 작성함.</td>
+        <td>실시간 금융 데이터와 뉴스 API를 LLM과 연동하여 사용자 투자 성향별 맞춤형 데일리 브리핑 콘텐츠를 자동 생성 및 발송.</td>
+        <td>콘텐츠 생산 비용을 90% 절감하고, 개인화된 푸시 메시지를 통한 앱 재방문율(Retention)을 15% 향상시킴.</td>
+        <td><span class="priority high">High</span></td>
+      </tr>
+<tr>
+        <td>03</td>
+        <td>광고주 캠페인 성과 보고서 생성</td>
+        <td>토스 애즈(Toss Ads) 담당자가 광고주별 집행 데이터를 수집하여 수동으로 분석 보고서를 작성하고 제안서를 제작함.</td>
+        <td>광고 성과 지표를 시각화하고, AI가 성과 요인 분석 및 향후 최적화 제안을 포함한 종합 보고서를 자동 생성하는 워크플로우 구축.</td>
+        <td>보고서 작성 시간을 주당 10시간 이상 절약하고, 광고주 피드백 주기를 단축하여 광고 재집행률을 높임.</td>
+        <td><span class="priority medium">Med</span></td>
+      </tr></tbody>
+  </table>
+  <h2><span class="num">04</span>So What — 다음 행동</h2>
+  <div class="next-action">
+    <div class="label">RECOMMENDED NEXT</div>
+    <p>토스는 단순 금융 중개를 넘어 광고 플랫폼으로서의 정체성을 강화하고 있으므로, 사용자 체류 시간을 광고 매출로 전환하는 AI 기반 개인화 추천 엔진 고도화에 집중해야 합니다.</p>
+  </div>
+  <div class="sources">
+    <div class="sources-label">Sources</div>
+    <ol><li><a href="https://toss.im">https://toss.im</a></li>
+<li><a href="https://www.kakaocorp.com">https://www.kakaocorp.com</a></li>
+<li><a href="https://www.navercorp.com">https://www.navercorp.com</a></li></ol>
+  </div>
+  <div class="colophon">
+    <div>n8n // research-brief v1.2</div>
+    <div>For internal review only</div>
+  </div>
+</div>
+</body>
+</html>
