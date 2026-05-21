@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주식회사 버킷플레이스 (오늘의집) — Research Note</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&family=Pretendard+Variable&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--paper:#fafaf7;--muted:#6b6b66;--line:#1a1a1a;--line-soft:#d8d6cf;--accent:#b8451f;}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Pretendard Variable',Georgia,serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+.page{max-width:720px;margin:0 auto;padding:64px 32px 120px;}
+.masthead{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:48px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.masthead .left{font-weight:500;color:var(--ink);}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:44px;line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;}
+.standfirst{font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.5;color:var(--muted);margin-bottom:40px;max-width:600px;}
+.byline{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);padding-bottom:32px;margin-bottom:48px;border-bottom:1px solid var(--line-soft);}
+.byline span+span::before{content:" · ";margin:0 4px;}
+.tldr{margin:0 0 56px;padding:24px 28px;border-left:2px solid var(--ink);}
+.tldr-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.tldr p{margin:0 0 8px;font-size:16px;line-height:1.55;}
+.tldr p:last-child{margin-bottom:0;}
+h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:26px;letter-spacing:-0.01em;margin:56px 0 20px;padding-top:24px;border-top:1px solid var(--line);}
+h2 .num{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--muted);margin-right:12px;vertical-align:4px;}
+p{margin:0 0 16px;}
+.facts{display:grid;grid-template-columns:140px 1fr;gap:4px 32px;margin:32px 0 40px;padding:24px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);font-size:14px;}
+.facts dt{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding-top:4px;}
+.facts dd{margin:0;padding-bottom:12px;border-bottom:1px dotted var(--line-soft);}
+.facts dd:last-of-type{border-bottom:none;padding-bottom:0;}
+.competitor-list{margin:0;padding:0;list-style:none;}
+.competitor-list li{padding:20px 0;border-bottom:1px solid var(--line-soft);}
+.competitor-list li:last-child{border-bottom:none;}
+.competitor-list h3{font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;margin:0 0 6px;}
+.competitor-list h3 .url{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:400;margin-left:8px;text-decoration:none;}
+.competitor-list .pos{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.competitor-list p{font-size:15px;margin:0;}
+table.opportunities{width:100%;border-collapse:collapse;margin:24px 0 40px;font-size:14px;}
+.opportunities th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:10px 12px 10px 0;border-bottom:1px solid var(--line);}
+.opportunities td{padding:16px 12px 16px 0;border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.5;}
+.opportunities td:first-child{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:12px;width:28px;}
+.priority{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:2px 7px;text-transform:uppercase;border:1px solid var(--ink);}
+.priority.high{background:var(--ink);color:var(--paper);}
+.priority.med{background:transparent;color:var(--ink);}
+.priority.low{background:transparent;color:var(--muted);border-color:var(--line-soft);}
+.next-action{margin:32px 0 48px;padding:28px 32px;background:var(--ink);color:var(--paper);}
+.next-action .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#999;margin-bottom:10px;}
+.next-action p{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.5;margin:0;}
+.sources{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+.sources-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;}
+.sources ol{padding-left:20px;margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.8;}
+.sources ol a{color:var(--accent);text-decoration:none;word-break:break-all;}
+.colophon{margin-top:80px;padding-top:24px;border-top:1px solid var(--line-soft);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <div class="left">RESEARCH NOTE / 라이프스타일 테크 플랫폼</div>
+    <div class="right">VOL.695 · 2026-05-21</div>
+  </div>
+  <div class="kicker">company · 1-page brief</div>
+  <h1>주식회사 버킷플레이스 (오늘의집)</h1>
+  <p class="standfirst">오늘의집은 단순 커머스를 넘어 라이프스타일 커뮤니티를 선점함으로써 사용자의 체류 시간을 독점하는 독보적인 플랫폼이다.</p>
+  <div class="byline">
+    <span>Compiled by n8n research workflow</span>
+    <span>3 sources</span>
+    <span>~3 min read</span>
+  </div>
+  <div class="tldr">
+    <div class="tldr-label">TL;DR</div>
+    <p>콘텐츠-커뮤니티-커머스(3C) 플라이휠을 통해 독보적인 사용자 체류 시간을 확보함.</p>
+    <p>단순 인테리어 소품 판매를 넘어 시공, 이사, 생활 서비스로 밸류체인을 확장 중임.</p>
+    <p>글로벌 시장 안착과 AI 기반 개인화 추천 고도화가 향후 지속 성장의 핵심 열쇠임.</p>
+  </div>
+  <h2><span class="num">01</span>회사 개요</h2>
+  <p>오늘의집은 인테리어 콘텐츠, 커뮤니티, 커머스를 결합한 국내 최대의 라이프스타일 플랫폼입니다. 사용자들이 직접 꾸민 공간의 정보를 공유하고 관련 제품을 즉시 구매할 수 있는 원스톱 서비스를 제공합니다.</p>
+  <dl class="facts">
+    <dt>주요 고객</dt><dd>주거 공간을 꾸미고 라이프스타일을 개선하고자 하는 2040 세대 1인 가구 및 신혼부부</dd>
+    <dt>비즈니스 모델</dt><dd>입점 브랜드 판매 수수료, 자체 광고(애드테크) 수익, 시공 및 이사 중개 수수료</dd>
+    <dt>최근 이슈</dt><dd>글로벌 시장(일본, 미국) 진출 본격화 및 AI 기술을 활용한 개인화 추천 서비스 고도화</dd>
+  </dl>
+  <h2><span class="num">02</span>경쟁 지형</h2>
+  <p>오늘의집은 단순 가구 쇼핑몰이 아닌, 사용자의 여가와 영감 소비 시간을 점유하는 글로벌 플랫폼들과 경쟁하고 있습니다.</p>
+  <ol class="competitor-list">
+    <li>
+        <h3>인스타그램 (Instagram) <a href="https://www.instagram.com" class="url">↗ www.instagram.com</a></h3>
+        <div class="pos">포지셔닝 — 글로벌 비주얼 SNS 및 라이프스타일 아카이브</div>
+        <p>전 세계 유저들의 일상과 인테리어 트렌드가 실시간으로 공유되며, 시각적 영감을 얻기 위해 가장 먼저 방문하고 오랜 시간 체류하는 플랫폼입니다.</p>
+      </li>
+<li>
+        <h3>핀터레스트 (Pinterest) <a href="https://www.pinterest.com" class="url">↗ www.pinterest.com</a></h3>
+        <div class="pos">포지셔닝 — 글로벌 이미지 검색 및 아이디어 큐레이션 플랫폼</div>
+        <p>사용자가 선호하는 인테리어 스타일과 무드를 무한히 탐색하고 저장할 수 있는 강력한 이미지 추천 알고리즘을 보유하고 있습니다.</p>
+      </li>
+<li>
+        <h3>유튜브 (YouTube) <a href="https://www.youtube.com" class="url">↗ www.youtube.com</a></h3>
+        <div class="pos">포지셔닝 — 글로벌 최대 비디오 스트리밍 및 정보 탐색 플랫폼</div>
+        <p>룸투어, 랜선 집들이, DIY 팁 등 생생한 영상 콘텐츠를 통해 사용자의 시각적, 청각적 주의를 가장 길게 붙잡아둡니다.</p>
+      </li>
+  </ol>
+  <h2><span class="num">03</span>자동화 기회</h2>
+  <p>오늘의집이 보유한 방대한 비정형 이미지 및 텍스트 데이터를 LLM과 자동화 워크플로우로 자산화할 기회가 존재합니다.</p>
+  <table class="opportunities">
+    <thead><tr><th>#</th><th>영역</th><th>현재 반복 업무</th><th>자동화 가설</th><th>기대 효과</th><th>P</th></tr></thead>
+    <tbody><tr>
+        <td>01</td>
+        <td>커뮤니티 이미지 내 상품 자동 태깅</td>
+        <td>유저가 업로드한 인테리어 사진 속 가구와 소품을 운영 인력이 수동으로 확인하고 판매 링크를 매칭함.</td>
+        <td>멀티모달 LLM을 활용해 이미지 속 가구의 카테고리, 색상, 스타일을 분석하고 판매 중인 유사 상품을 자동 매칭 및 태깅함.</td>
+        <td>태깅 작업 소요 시간을 90% 이상 단축하고, 태그 누락 방지를 통해 커머스 전환율을 15% 이상 개선할 것으로 기대됨.</td>
+        <td><span class="priority high">High</span></td>
+      </tr>
+<tr>
+        <td>02</td>
+        <td>고객 문의(CS) 자동 응대 및 분류</td>
+        <td>배송 지연, 반품, 교환 등 다양한 입점 브랜드별 CS 문의를 상담원이 일일이 확인하고 분류하여 답변함.</td>
+        <td>LLM 기반의 AI 에이전트가 배송 상태 및 브랜드별 정책 데이터를 실시간 조회하여 맞춤형 답변을 자동 생성하고 해결함.</td>
+        <td>단순 반복 문의 해결률을 70% 이상 달성하여 상담원 업무 부하를 줄이고 고객 만족도를 높임.</td>
+        <td><span class="priority high">High</span></td>
+      </tr>
+<tr>
+        <td>03</td>
+        <td>입점 파트너 상품 설명 생성 및 최적화</td>
+        <td>중소 입점 업체들이 상품 등록 시 상세 페이지 제작 및 검색 최적화(SEO) 키워드 추출에 많은 시간을 소모함.</td>
+        <td>상품 이미지와 기본 스펙을 입력하면 LLM이 오늘의집 톤앤매너에 맞는 감성적인 상품 설명문과 SEO 태그를 자동 생성함.</td>
+        <td>신규 상품 등록 주기를 단축시키고, 입점사 만족도를 제고하여 플랫폼 내 상품 다양성을 빠르게 확보함.</td>
+        <td><span class="priority medium">Med</span></td>
+      </tr></tbody>
+  </table>
+  <h2><span class="num">04</span>So What — 다음 행동</h2>
+  <div class="next-action">
+    <div class="label">RECOMMENDED NEXT</div>
+    <p>오늘의집은 커뮤니티 내 축적된 멀티모달 데이터를 활용해 이미지-상품 매칭 자동화 파이프라인을 구축하고, 이를 통해 커머스 전환 효율을 극대화해야 합니다.</p>
+  </div>
+  <div class="sources">
+    <div class="sources-label">Sources</div>
+    <ol><li><a href="https://www.bucketplace.com">https://www.bucketplace.com</a></li>
+<li><a href="https://ohou.se">https://ohou.se</a></li>
+<li><a href="https://www.venturesquare.net">https://www.venturesquare.net</a></li></ol>
+  </div>
+  <div class="colophon">
+    <div>n8n // research-brief v1.2</div>
+    <div>For internal review only</div>
+  </div>
+</div>
+</body>
+</html>
