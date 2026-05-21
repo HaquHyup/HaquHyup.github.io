@@ -84,5 +84,28 @@
   <script src="js/theme.js"></script>
   <script src="js/app.js"></script>
   <script src="js/search.js"></script>
+
+  <!-- n8n Chat Widget -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    createChat({
+      webhookUrl: 'https://haqu.app.n8n.cloud/webhook-test/chat',
+      initialMessages: [
+        '안녕하세요! 포트폴리오 블로그 챗봇입니다.',
+        '궁금한 점을 자유롭게 물어보세요!'
+      ],
+      i18n: {
+        ko: {
+          title: '포트폴리오 챗봇',
+          subtitle: '무엇이든 물어보세요',
+          inputPlaceholder: '메시지를 입력하세요...',
+          getStarted: '대화 시작하기',
+          closeButtonTooltip: '닫기',
+        }
+      },
+      defaultLanguage: 'ko',
+    });
+  </script>
 </body>
 </html>
