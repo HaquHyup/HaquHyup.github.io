@@ -87,6 +87,15 @@
 
   <!-- n8n Chat Widget -->
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+   <style>
+    :root {
+      --chat--window--width: 600px;
+      --chat--window--height: 800px;
+      --chat--toggle--size: 70px;
+      --chat--message--font-size: 16px;
+      --chat--header--height: 60px;
+    }
+  </style>
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
     createChat({
