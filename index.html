@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My GitHub Blog</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+  <!-- ===== 포트폴리오 AI 챗봇 크기 커스텀 ===== -->
+  <style>
+    :root {
+      --chat--window--width: 600px;
+      --chat--window--height: 800px;
+      --chat--toggle--size: 70px;
+      --chat--message--font-size: 16px;
+      --chat--header--height: 60px;
+      --chat--textarea--height: 60px;
+      --chat--input--font-size: 15px;
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <div class="header-container">
@@ -16,7 +31,7 @@
       </div>
     </div>
   </header>
-  
+
   <main class="container">
     <section class="portfolio-section">
       <h3>포트폴리오</h3>
@@ -24,7 +39,8 @@
         <!-- 첫 번째 포트폴리오 카드 -->
         <div class="portfolio-item" onclick="openPortfolioModal('portfolio-1')">
           <div class="portfolio-img-placeholder" style="background-color: transparent; padding: 0;">
-            <img src="images/portfolio_thumb.png" alt="인스타그램 인플루언서 데이터 분석" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="images/portfolio_thumb.png" alt="인스타그램 인플루언서 데이터 분석"
+              style="width: 100%; height: 100%; object-fit: cover;">
           </div>
           <h4>데이터 분석 첫번째 프로젝트</h4>
         </div>
@@ -35,16 +51,16 @@
       <h3>태그 필터</h3>
       <div id="tag-cloud"></div>
     </div>
-    
+
     <div id="post-list" class="post-list">
       <!-- 게시글 목록이 JavaScript로 렌더링됩니다 -->
     </div>
-    
+
     <!-- 포트폴리오 모달 -->
     <div id="portfolio-modal" class="modal">
       <div class="modal-content">
         <span class="close-modal" onclick="closePortfolioModal()">&times;</span>
-        
+
         <!-- 포트폴리오 내용: 프로젝트 1 -->
         <div id="portfolio-1" class="portfolio-details" style="display: none;">
           <h2 class="modal-title">데이터 분석 첫번째 프로젝트</h2>
@@ -53,7 +69,7 @@
               <p><strong>개요:</strong> 데이터 분석 첫번째 프로젝트</p>
               <p><strong>메인:</strong> 인스타그램 인플루언서에 대한 광고 효율 데이터 분석</p>
             </div>
-            
+
             <div class="stack-section">
               <h4>개발 환경</h4>
               <ul>
@@ -63,16 +79,21 @@
                 <li><strong>데이터 출처:</strong> Google</li>
               </ul>
             </div>
-            
+
             <div class="link-section">
-              <a href="https://github.com/haquoh/project_01_instagram_influencer_analysis.git" target="_blank" class="github-link">
-                <svg height="24" width="24" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+              <a href="https://github.com/haquoh/project_01_instagram_influencer_analysis.git" target="_blank"
+                class="github-link">
+                <svg height="24" width="24" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                  </path>
+                </svg>
                 GitHub 저장소 보기
               </a>
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </main>
@@ -85,27 +106,24 @@
   <script src="js/app.js"></script>
   <script src="js/search.js"></script>
 
-  <!-- n8n Chat Widget -->
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-    createChat({
-      webhookUrl: 'https://haqu.app.n8n.cloud/webhook-test/chat',
-      initialMessages: [
-        '안녕하세요! 포트폴리오 블로그 챗봇입니다.',
-        '궁금한 점을 자유롭게 물어보세요!'
-      ],
-      i18n: {
-        ko: {
-          title: '포트폴리오 챗봇',
-          subtitle: '무엇이든 물어보세요',
-          inputPlaceholder: '메시지를 입력하세요...',
-          getStarted: '대화 시작하기',
-          closeButtonTooltip: '닫기',
-        }
+  <!-- ===== 포트폴리오 AI 챗봇 ===== -->
+  <script>
+    window.ChatWidgetConfig = {
+      webhook: {
+        url: 'https://haqu.app.n8n.cloud/webhook-test/chat'
       },
-      defaultLanguage: 'ko',
-    });
+      branding: {
+        name: 'Portfolio AI',
+        welcomeText: '안녕하세요! 저에 대해 궁금한 점을 물어보세요 😊',
+        responseTimeText: '잠시 후 답변드릴게요'
+      },
+      style: {
+        primaryColor: '#5c6bc0',
+        position: 'right'
+      }
+    };
   </script>
+  <script src="js/chatbot.js"></script>
 </body>
+
 </html>

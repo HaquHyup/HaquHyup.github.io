@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post - My GitHub Blog</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+  <!-- ===== 포트폴리오 AI 챗봇 크기 커스텀 ===== -->
+  <style>
+    :root {
+      --chat--window--width: 600px;
+      --chat--window--height: 800px;
+      --chat--toggle--size: 70px;
+      --chat--message--font-size: 16px;
+      --chat--header--height: 60px;
+      --chat--textarea--height: 60px;
+      --chat--input--font-size: 15px;
+    }
+  </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" id="prism-theme">
   <!-- marked.js -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -42,5 +55,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+
+  <!-- ===== 포트폴리오 AI 챗봇 ===== -->
+  <script>
+    window.ChatWidgetConfig = {
+      webhook: {
+        url: 'https://본인주소.app.n8n.cloud/webhook/chat'
+      },
+      branding: {
+        name: 'Portfolio AI',
+        welcomeText: '안녕하세요! 저에 대해 궁금한 점을 물어보세요 😊',
+        responseTimeText: '잠시 후 답변드릴게요'
+      },
+      style: {
+        primaryColor: '#5c6bc0',
+        position: 'right'
+      }
+    };
+  </script>
+  <script src="js/chatbot.js"></script>
 </body>
 </html>
